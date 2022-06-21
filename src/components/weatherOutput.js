@@ -12,13 +12,18 @@ export default function DisplayWeather(){
     const [days, setDays] = useState([])
 
     const weatherInput = (data) => {
-        setWeather(data)
-        setDays(data.days[0])
-        console.log(weather)
-        console.log(days)
-        document.getElementById('carousel').style.display = "block";
-        document.getElementById('placeHolder').style.display = "none";
+        if(Number.isInteger(data)){
+            setDays(weather.days[data])
+            console.log(data)
+        }else{
+            setWeather(data)
+            setDays(data.days[0])
+            document.getElementById('carousel').style.display = "block";
+            document.getElementById('placeHolder').style.display = "none";
+        }
     }
+
+
 return(
     <main>
         <UseWeatherAPI weatherInput={weatherInput}/>
@@ -26,6 +31,7 @@ return(
             <img 
                 className="d-block w-100 h-100"
                 src={standby}
+                alt="Placeholder"
                 />
         </div>
         <Carousel fade id="carousel">
@@ -33,6 +39,7 @@ return(
                 <img
                     className="d-block w-100 h-100"
                     src={tempAvg}
+                    alt="Temperature Average"
                 />
             <Carousel.Caption>
                 <h1>Temperature Average {days.temp}&deg;</h1>
@@ -43,6 +50,7 @@ return(
                 <img
                     className="d-block w-100 h-100"
                     src={tempMax}
+                    alt="Temperature Max"
                 />
             <Carousel.Caption>
                 <h1>Temperature Max {days.tempmax}&deg;</h1>
@@ -53,13 +61,13 @@ return(
                 <img
                     className="d-block w-100 h-100"
                     src={tempMin}
+                    alt="Temperature Minimum"
                 />
             <Carousel.Caption>
                 <h1>Temperature Low {days.tempmin}&deg;</h1>
                 <p>{weather.resolvedAddress}</p>
             </Carousel.Caption>
             </Carousel.Item>
-            
       </Carousel>
     </main>
 )

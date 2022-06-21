@@ -4,7 +4,13 @@ body{
 }
 
 /* Header */
+.navbar-brand{
+    margin: 0;
+}
 
+.container{
+    margin-left: 365px;
+}
 
 /* WeatherAPI */
 #buttons-container{
@@ -12,10 +18,13 @@ body{
     margin-left: 365px;
     margin-bottom: 10px;
 }
-#dropdown-basic-button{
-    margin-right: 10px
+#dropdown-location-button{
+    margin-right: 10px;
 }
-
+#dropdown-date-button{
+    margin-right: 10px;
+    display: none;
+}
 
 /* WeatherOutput */
 #carousel{
