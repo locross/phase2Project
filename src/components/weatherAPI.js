@@ -20,8 +20,8 @@ export default function UseWeatherAPI({weatherInput}) {
                 return response.json();
             })
             .then(data => {
-                weatherInput(data)
-                dateDropdown(data)
+                weatherInput(data);
+                dateDropdown(data);  
             })
             .catch(error => console.log(error))
 
@@ -40,9 +40,9 @@ export default function UseWeatherAPI({weatherInput}) {
         document.getElementById('dropdown-date-4').innerHTML = days[4].datetime;
         document.getElementById('dropdown-date-5').innerHTML = days[5].datetime;
         document.getElementById('dropdown-date-6').innerHTML = days[6].datetime;
-        console.log(document.getElementById('dropdown-date-0').innerHTML)
+        setDate(days[0].datetime)
         };
-    
+
         return(
                 <div id="buttons-container">
                     <DropdownButton id="dropdown-location-button" title={location}>
@@ -50,13 +50,13 @@ export default function UseWeatherAPI({weatherInput}) {
                         <Dropdown.Item onClick={() => {setLocation('Sydney')}} >Sydney</Dropdown.Item>
                     </DropdownButton>
                     <DropdownButton id="dropdown-date-button" title={date}>
-                        <Dropdown.Item id="dropdown-date-0" onClick={() => {setDate(document.getElementById('dropdown-date-0').innerHTML); weatherInput(0)}}></Dropdown.Item>
-                        <Dropdown.Item id="dropdown-date-1" onClick={() => {setDate(document.getElementById('dropdown-date-1').innerHTML); weatherInput(1)}}></Dropdown.Item>
-                        <Dropdown.Item id="dropdown-date-2" onClick={() => {setDate(document.getElementById('dropdown-date-2').innerHTML); weatherInput(2)}}></Dropdown.Item>
-                        <Dropdown.Item id="dropdown-date-3" onClick={() => {setDate(document.getElementById('dropdown-date-3').innerHTML); weatherInput(3)}}></Dropdown.Item>
-                        <Dropdown.Item id="dropdown-date-4" onClick={() => {setDate(document.getElementById('dropdown-date-4').innerHTML); weatherInput(4)}}></Dropdown.Item>
-                        <Dropdown.Item id="dropdown-date-5" onClick={() => {setDate(document.getElementById('dropdown-date-5').innerHTML); weatherInput(5)}}></Dropdown.Item>
-                        <Dropdown.Item id="dropdown-date-6" onClick={() => {setDate(document.getElementById('dropdown-date-6').innerHTML); weatherInput(6)}}></Dropdown.Item>
+                        <Dropdown.Item id="dropdown-date-0" onClick={() => {setDate(document.getElementById('dropdown-date-0').innerHTML); weatherInput(0)}}>0</Dropdown.Item>
+                        <Dropdown.Item id="dropdown-date-1" onClick={() => {setDate(document.getElementById('dropdown-date-1').innerHTML); weatherInput(1)}}>1</Dropdown.Item>
+                        <Dropdown.Item id="dropdown-date-2" onClick={() => {setDate(document.getElementById('dropdown-date-2').innerHTML); weatherInput(2)}}>2</Dropdown.Item>
+                        <Dropdown.Item id="dropdown-date-3" onClick={() => {setDate(document.getElementById('dropdown-date-3').innerHTML); weatherInput(3)}}>3</Dropdown.Item>
+                        <Dropdown.Item id="dropdown-date-4" onClick={() => {setDate(document.getElementById('dropdown-date-4').innerHTML); weatherInput(4)}}>4</Dropdown.Item>
+                        <Dropdown.Item id="dropdown-date-5" onClick={() => {setDate(document.getElementById('dropdown-date-5').innerHTML); weatherInput(5)}}>5</Dropdown.Item>
+                        <Dropdown.Item id="dropdown-date-6" onClick={() => {setDate(document.getElementById('dropdown-date-6').innerHTML); weatherInput(6)}}>6</Dropdown.Item>
                     </DropdownButton>
                     <Button id="submitButton" onClick={() => {WeatherGetAPI()}}>Submit</Button>{' '}
                 </div>
