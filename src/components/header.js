@@ -2,6 +2,7 @@ import React from "react"
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Logo from './Images/logo.png'
+import { Link, Outlet } from "react-router-dom";
 
 export default function Header() {
 
@@ -9,7 +10,9 @@ export default function Header() {
         <>
             <Navbar bg="dark" variant="dark">
                 <Container>
-                        <Navbar.Brand href="#home">
+                        <Link to="/">Home</Link>
+                        <Link to="About">About</Link>
+                        <Navbar.Brand>
                         <img
                         alt=""
                         src={Logo}
@@ -21,6 +24,7 @@ export default function Header() {
                         </Navbar.Brand>
                 </Container>    
             </Navbar> 
+            <Outlet />
         </>
     )
 }

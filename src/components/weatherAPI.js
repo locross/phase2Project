@@ -20,27 +20,28 @@ export default function UseWeatherAPI({weatherInput}) {
                 return response.json();
             })
             .then(data => {
-                weatherInput(data);
-                dateDropdown(data);  
+                 weatherInput(data);
+                 dateDropdown(data); 
             })
             .catch(error => console.log(error))
 
         }else{
-            
+            alert("Select a Location!")
         };
     };    
 
     const dateDropdown = (data) => {
-        let days = data.days
+        setDate(data.days[0].datetime)
         document.getElementById("dropdown-date-button").style.display = "block";
-        document.getElementById('dropdown-date-0').innerHTML = days[0].datetime;
-        document.getElementById('dropdown-date-1').innerHTML = days[1].datetime;
-        document.getElementById('dropdown-date-2').innerHTML = days[2].datetime;
-        document.getElementById('dropdown-date-3').innerHTML = days[3].datetime;
-        document.getElementById('dropdown-date-4').innerHTML = days[4].datetime;
-        document.getElementById('dropdown-date-5').innerHTML = days[5].datetime;
-        document.getElementById('dropdown-date-6').innerHTML = days[6].datetime;
-        setDate(days[0].datetime)
+        document.getElementById('dropdown-date-0').innerHTML = data.days[0].datetime;
+        document.getElementById('dropdown-date-1').innerHTML = data.days[1].datetime;
+        document.getElementById('dropdown-date-2').innerHTML = data.days[2].datetime;
+        document.getElementById('dropdown-date-3').innerHTML = data.days[3].datetime;
+        document.getElementById('dropdown-date-4').innerHTML = data.days[4].datetime;
+        document.getElementById('dropdown-date-5').innerHTML = data.days[5].datetime;
+        document.getElementById('dropdown-date-6').innerHTML = data.days[6].datetime;
+    
+    
         };
 
         return(
