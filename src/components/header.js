@@ -2,6 +2,8 @@ import React from "react"
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Logo from './Images/logo.png'
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Outlet } from "react-router-dom";
 
 export default function Header() {
@@ -10,9 +12,7 @@ export default function Header() {
         <>
             <Navbar bg="dark" variant="dark">
                 <Container>
-                        <Link to="/">Home</Link>
-                        <Link to="About">About</Link>
-                        <Navbar.Brand>
+                    <Navbar.Brand>
                         <img
                         alt=""
                         src={Logo}
@@ -21,7 +21,13 @@ export default function Header() {
                         className="d-inline-block align-top"
                         />{' '}
                         Weather Hub
-                        </Navbar.Brand>
+                    </Navbar.Brand>
+                    <Link to="About">
+                        <Button>About</Button>{' '}
+                    </Link>
+                    <Link to="/">
+                        <Button>Home</Button>{' '}
+                    </Link>
                 </Container>    
             </Navbar> 
             <Outlet />
